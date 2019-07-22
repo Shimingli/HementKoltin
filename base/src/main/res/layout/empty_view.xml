@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_marginTop="@dimen/dp_40"
+            style="@style/MultipleStatusView.Content"
+            android:layout_centerInParent="true"
+            android:id="@+id/empty_view_tv"
+            android:gravity="center"
+            android:text="@string/empty_view_hint"/>
+    <ImageView android:layout_width="@dimen/dp_200"
+               android:src="@mipmap/pic_empty"
+               android:layout_centerHorizontal="true"
+               android:layout_above="@+id/empty_view_tv"
+               android:id="@+id/empty_retry_view"
+               android:layout_height="@dimen/dp_200"/>
+</RelativeLayout>
