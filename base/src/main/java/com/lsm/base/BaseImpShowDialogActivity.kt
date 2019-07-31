@@ -1,9 +1,9 @@
 package com.xfxb.paperless.base
 
 import android.app.Dialog
-import android.os.Build
 import com.base.net.BasePresenter
 import com.base.net.IMvpView
+import com.lsm.base.BaseActivity
 import com.xfxb.paperless.weight.LoadingDialog
 import java.lang.Exception
 

@@ -1,5 +1,6 @@
-package com.xfxb.paperless.base
+package com.lsm.base
 
+import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -11,8 +12,6 @@ import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleObserver
-import com.lsm.base.ActivityManager
-import com.lsm.base.BaseApplication
 import com.lsm.base.mvp.IMvpView
 import com.lsm.base.utils.DisplayManager
 import com.lsm.base.utils.ToastNativeLayoutUtils
@@ -32,7 +31,7 @@ import timber.log.Timber
  * @version v1.0
  * @since 2019/4/27 15:15
  */
-open abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks , IMvpView {
+ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks , IMvpView {
 
     /**
      * 多种状态的 View 的切换
@@ -44,11 +43,12 @@ open abstract class BaseActivity : AppCompatActivity(), EasyPermissions.Permissi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initFragmentAction()
-        ActivityManager.getInstance().addActivity(this)
+//        ActivityManager.getInstance().addActivity(this)
         DisplayManager.initActivity(this)
         setContentView(layoutId())
-
-        lifecycle.addObserver(getPresenter())
+         if (getPresenter()!=null){
+             lifecycle.addObserver(getPresenter()!!)
+         }
         getTransmitData()
         initLeftLogoLayout()
         initListener()
@@ -90,13 +90,14 @@ open abstract class BaseActivity : AppCompatActivity(), EasyPermissions.Permissi
 
     }
 
-    abstract fun initListener()
+    protected open  fun initListener(){
 
+    }
 
     /**
      *  网络请求的数据
      */
-    abstract fun initData()
+    protected open  fun initData(){}
 
     abstract fun layoutId(): Int
 
@@ -178,7 +179,7 @@ open abstract class BaseActivity : AppCompatActivity(), EasyPermissions.Permissi
     override fun onDestroy() {
         compositeDisposable.clear()
         super.onDestroy()
-        ActivityManager.getInstance().removeActivity(this)
+//        ActivityManager.getInstance().removeActivity(this)
 
     }
 

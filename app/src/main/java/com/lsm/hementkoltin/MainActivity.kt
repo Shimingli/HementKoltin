@@ -1,12 +1,30 @@
 package com.lsm.hementkoltin
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+import androidx.lifecycle.LifecycleObserver
+import com.lsm.base.BaseActivity
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+/**
+ * AppCompatActivity  继承他 就可以 我日了狗了哦
+ */
+class MainActivity : BaseActivity() {
+
+    override fun getPresenter(): LifecycleObserver?{
+        println("shiming")
+      return  null
     }
+
+
+    override fun initListener() {
+        println("shiming")
+    }
+
+    override fun initData() {
+        println("shiming")
+    }
+
+    override fun layoutId(): Int=R.layout.activity_main
+
+
+
 }

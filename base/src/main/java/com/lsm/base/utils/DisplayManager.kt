@@ -2,7 +2,7 @@ package com.lsm.base.utils
 
 import android.content.Context
 import android.util.DisplayMetrics
-import com.xfxb.paperless.base.BaseActivity
+import com.lsm.base.BaseActivity
 
 /**
  * <p>

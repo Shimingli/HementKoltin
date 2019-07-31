@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.multidex.MultiDexApplication
+import kotlin.properties.Delegates
 
 
 /**
@@ -22,11 +23,11 @@ open class BaseApplication : MultiDexApplication() {
 
         private val TAG = "MyApplication"
 
-//        var context: Context by Delegates.notNull()
+        var context: Context by Delegates.notNull()
     }
 
     private var mainThreadHandler: Handler? = null
-    private var context: Context? = null
+
     override fun onCreate() {
         super.onCreate()
         context=applicationContext

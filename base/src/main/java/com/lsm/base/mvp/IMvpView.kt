@@ -12,7 +12,7 @@ import com.lsm.base.utils.ToastNativeLayoutUtils
  * @version v1.0
  * @since 2019/5/20 15:11
  */
-open interface IMvpView {
+ interface IMvpView {
 
     /**
      * 数据失败的同一处理
