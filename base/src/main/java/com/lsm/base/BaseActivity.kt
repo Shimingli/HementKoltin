@@ -41,14 +41,12 @@ import timber.log.Timber
     var compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (savedInstanceState==null){
-            super.onCreate( Bundle())
-        }else{
-            super.onCreate(savedInstanceState)
-        }
-//        super.onCreate(savedInstanceState)
-
-
+//        if (savedInstanceState==null){
+//            super.onCreate( Bundle())
+//        }else{
+//            super.onCreate(savedInstanceState)
+//        }
+        super.onCreate(savedInstanceState)
         initFragmentAction()
 //        ActivityManager.getInstance().addActivity(this)
         DisplayManager.initActivity(this)
