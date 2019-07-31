@@ -1,4 +1,4 @@
-package com.xfxb.paperless.base
+package com.lsm.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleObserver
-import com.xfxb.paperless.weight.MultipleStatusView
+import com.lsm.base.weight.MultipleStatusView
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 

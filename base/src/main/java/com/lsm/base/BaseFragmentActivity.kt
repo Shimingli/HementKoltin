@@ -6,7 +6,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentManager
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
-import io.reactivex.disposables.CompositeDisposable
+import com.lsm.base.BaseFragment
 
 
 /**

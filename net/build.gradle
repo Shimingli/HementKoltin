@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 Properties configProp = new Properties()
 configProp.load(new FileInputStream(file("$rootDir/config.properties")))
@@ -8,8 +10,6 @@ String server_address=configProp['server_address']
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
-
 
     defaultConfig {
         minSdkVersion 16

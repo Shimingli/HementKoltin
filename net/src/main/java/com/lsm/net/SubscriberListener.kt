@@ -1,6 +1,8 @@
 package com.base.net
 
 import android.widget.Toast
+import com.lsm.base.BaseApplication
+import com.lsm.net.R
 import io.reactivex.disposables.Disposable
 import retrofit2.HttpException
 import java.net.SocketException
@@ -36,31 +38,31 @@ abstract class SubscriberListener<T> {
      * @param e
      */
     fun onError(e: Throwable) {
-        if (e is HttpException) {
-            val httpException = e as HttpException
-            val code = httpException.code()
-            if (code == 502 || code == 404) {
-                Toast.makeText(
-                    BaseApplication.context,
-                    R.string.server_exception_please_try_again_later,
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else if (code == 504) {
-                Toast.makeText(
-                    BaseApplication.context,
-                    R.string.the_network_is_not_giving_strength,
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
-            }
-        } else if (e is UnknownHostException || e is SocketException) {
-            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
-        } else if (e is SocketTimeoutException) {
-            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
-        }
+//        if (e is HttpException) {
+//            val httpException = e as HttpException
+//            val code = httpException.code()
+//            if (code == 502 || code == 404) {
+//                Toast.makeText(
+//                    BaseApplication.context,
+//                    R.string.server_exception_please_try_again_later,
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            } else if (code == 504) {
+//                Toast.makeText(
+//                    BaseApplication.context,
+//                    R.string.the_network_is_not_giving_strength,
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            } else {
+//                Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
+//            }
+//        } else if (e is UnknownHostException || e is SocketException) {
+//            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
+//        } else if (e is SocketTimeoutException) {
+//            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
+//        } else {
+//            Toast.makeText(BaseApplication.context, R.string.no_network_connected, Toast.LENGTH_SHORT).show()
+//        }
     }
 
     fun onCompleted() {

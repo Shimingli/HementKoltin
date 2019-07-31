@@ -1,10 +1,7 @@
 package com.xfxb.paperless.base
 
 import android.app.Dialog
-import com.base.net.BasePresenter
-import com.base.net.IMvpView
 import com.lsm.base.BaseActivity
-import com.xfxb.paperless.weight.LoadingDialog
 import java.lang.Exception
 
 /**
@@ -32,7 +29,7 @@ abstract class BaseImpShowDialogActivity : BaseActivity() {
 
     private fun baseShowDialog() {
         if (dialog == null) {
-            dialog = LoadingDialog(this, false)
+            //dialog = LoadingDialog(this, false)
             dialog?.setCanceledOnTouchOutside(false)
             dialog?.setCancelable(false)
             //dialog?.setCancelable(true)
@@ -48,7 +45,7 @@ abstract class BaseImpShowDialogActivity : BaseActivity() {
             }else{
                 //保证由于这个的问题，app不会闪退
                 try {
-                    if(this!=null&&!this.isFinishing){
+                    if(!this.isFinishing){
                         dialog?.show()
                     }
                 }catch (e :Exception){

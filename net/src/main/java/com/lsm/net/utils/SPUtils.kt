@@ -3,6 +3,8 @@ package com.lsm.net.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.lsm.base.BaseApplication
 import java.io.*
 import kotlin.reflect.KProperty
@@ -27,6 +29,7 @@ class SPUtils<T>(val name:String, private val default:T) {
         /**
          * 删除全部数据
          */
+        @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
         fun clearPreference(){
             prefs.edit().clear().apply()
         }
@@ -34,6 +37,7 @@ class SPUtils<T>(val name:String, private val default:T) {
         /**
          * 根据key删除存储数据
          */
+        @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
         fun clearPreference(key : String){
             prefs.edit().remove(key).apply()
         }
@@ -49,9 +53,10 @@ class SPUtils<T>(val name:String, private val default:T) {
     }
 
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
-        putSharedPreferences(name, value)
+//        putSharedPreferences(name, value)
     }
 
+    @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
     @SuppressLint("CommitPrefEdits")
     private fun putSharedPreferences(name: String, value: T) = with(prefs.edit()) {
         when (value) {
@@ -66,14 +71,15 @@ class SPUtils<T>(val name:String, private val default:T) {
 
     @Suppress("UNCHECKED_CAST")
     private fun getSharedPreferences(name: String, default: T): T = with(prefs) {
-        val res: Any = when (default) {
-            is Long -> getLong(name, default)
-            is String -> getString(name, default )
-            is Int -> getInt(name, default)
-            is Boolean -> getBoolean(name, default)
-            is Float -> getFloat(name, default)
-            else ->  deSerialization(getString(name,serialize(default)))
-        }
+//        val res: Any = when (default) {
+//            is Long -> getLong(name, default)
+//            is String -> getString(name, default )
+//            is Int -> getInt(name, default)
+//            is Boolean -> getBoolean(name, default)
+//            is Float -> getFloat(name, default)
+//            else ->  deSerialization(getString(name,serialize(default)))
+//        }
+        val res = null
         return res as T
     }
 

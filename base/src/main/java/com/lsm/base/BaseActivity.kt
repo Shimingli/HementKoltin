@@ -38,10 +38,17 @@ import timber.log.Timber
      */
     protected var mLayoutStatusView: MultipleStatusView? = null
 
-    public var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        if (savedInstanceState==null){
+            super.onCreate( Bundle())
+        }else{
+            super.onCreate(savedInstanceState)
+        }
+//        super.onCreate(savedInstanceState)
+
+
         initFragmentAction()
 //        ActivityManager.getInstance().addActivity(this)
         DisplayManager.initActivity(this)
@@ -53,8 +60,8 @@ import timber.log.Timber
         initLeftLogoLayout()
         initListener()
         initData()
-        mLayoutStatusView= getMultipleStatusView()
-        mLayoutStatusView?.setOnClickListener(mRetryClickListener)
+//        mLayoutStatusView= getMultipleStatusView()
+//        mLayoutStatusView?.setOnClickListener(mRetryClickListener)
     }
 
     open fun getMultipleStatusView(): MultipleStatusView? {
@@ -76,7 +83,9 @@ import timber.log.Timber
 
     }
 
-    abstract fun getPresenter(): LifecycleObserver?
+    protected fun getPresenter(): LifecycleObserver?{
+        return null
+    }
 
 
     protected open fun initLeftLogoLayout() {
