@@ -17,6 +17,7 @@ import com.lsm.base.utils.DisplayManager
 import com.lsm.base.utils.ToastNativeLayoutUtils
 import com.lsm.base.weight.MultipleStatusView
 import io.reactivex.disposables.CompositeDisposable
+import me.yokeyword.fragmentation.SupportActivity
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import timber.log.Timber
@@ -31,7 +32,7 @@ import timber.log.Timber
  * @version v1.0
  * @since 2019/4/27 15:15
  */
- abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks , IMvpView {
+ abstract class BaseActivity : SupportActivity(), EasyPermissions.PermissionCallbacks , IMvpView {
 
     /**
      * 多种状态的 View 的切换
@@ -41,14 +42,8 @@ import timber.log.Timber
     var compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        if (savedInstanceState==null){
-//            super.onCreate( Bundle())
-//        }else{
-//            super.onCreate(savedInstanceState)
-//        }
         super.onCreate(savedInstanceState)
         initFragmentAction()
-//        ActivityManager.getInstance().addActivity(this)
         DisplayManager.initActivity(this)
         setContentView(layoutId())
          if (getPresenter()!=null){
@@ -81,9 +76,7 @@ import timber.log.Timber
 
     }
 
-    protected fun getPresenter(): LifecycleObserver?{
-        return null
-    }
+    abstract fun getPresenter(): LifecycleObserver?
 
 
     protected open fun initLeftLogoLayout() {
@@ -97,14 +90,12 @@ import timber.log.Timber
 
     }
 
-    protected open  fun initListener(){
-
-    }
+    abstract fun initListener()
 
     /**
      *  网络请求的数据
      */
-    protected open  fun initData(){}
+    abstract  fun initData()
 
     abstract fun layoutId(): Int
 
@@ -186,24 +177,6 @@ import timber.log.Timber
     override fun onDestroy() {
         compositeDisposable.clear()
         super.onDestroy()
-//        ActivityManager.getInstance().removeActivity(this)
-
     }
-
-//    override fun checkLogin(code: Int, message: String?) {
-//        super.checkLogin(code, message)
-//        ToastNativeLayoutUtils.toast(BaseApplication.context,message!!)
-//        val manager = ActivityManager.getInstance()
-//        val currentActivity = manager.currentActivity
-//        if (currentActivity != null && currentActivity !is LoginActivity) {  //不是在登录页
-//            currentActivity.startActivity(Intent(currentActivity, LoginActivity::class.java))
-//            val activityStack = manager.activityStack//遍历activity栈，清除loginActivity以外的所有activity
-//            for (baseActivity in activityStack) {
-//                if (baseActivity !is LoginActivity) {
-//                    baseActivity.finish()
-//                }
-//            }
-//        }
-//    }
 
 }

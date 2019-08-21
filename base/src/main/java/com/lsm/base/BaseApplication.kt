@@ -1,9 +1,11 @@
 package com.lsm.base
 
+import android.app.Activity
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.multidex.MultiDexApplication
+import java.util.concurrent.ConcurrentHashMap
 import kotlin.properties.Delegates
 
 
@@ -24,6 +26,8 @@ open class BaseApplication : MultiDexApplication() {
         private val TAG = "MyApplication"
 
         var context: Context by Delegates.notNull()
+
+        //val sActivityEventBusScopePool = ConcurrentHashMap<Activity, LazyEventBusInstance>()
     }
 
     private var mainThreadHandler: Handler? = null

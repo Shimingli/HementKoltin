@@ -1,7 +1,5 @@
 package com.lsm.base.mvp
 
-import com.lsm.base.BaseApplication
-import com.lsm.base.utils.ToastNativeLayoutUtils
 
 /**
  * <p>
