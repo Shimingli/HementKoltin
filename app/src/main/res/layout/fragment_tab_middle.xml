@@ -4,11 +4,18 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar"/>
-    <TextView
-            android:text="zhongjain"
-            android:textSize="@dimen/dp_40"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <include
+            android:visibility="gone"
+            layout="@layout/toolbar"/>
+
+    <androidx.cardview.widget.CardView android:layout_width="@dimen/dp_80"
+                                       android:layout_height="@dimen/dp_80">
+
+        <TextView
+                android:text="zhongjain"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

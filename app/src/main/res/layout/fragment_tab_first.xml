@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <include
+            android:visibility="gone"
+            layout="@layout/toolbar"/>
+    <ImageView
+            android:id="@+id/light_turn_off"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shou_off"/>
 
-    <include layout="@layout/toolbar"/>
-    <TextView
-            android:text="首页"
-            android:textSize="@dimen/dp_40"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
+    <ImageView
+            android:id="@+id/light_turn_btn"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_200"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="80dp"
+            android:src="@drawable/turn_off"/>
+
+    <ImageView
+            android:id="@+id/light_turn_on"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shou_on"
+            android:visibility="gone"/>
+</RelativeLayout>
