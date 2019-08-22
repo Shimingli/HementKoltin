@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical">
-
-    <FrameLayout
-            android:id="@+id/fl_tab_container"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/bottombar_wechat_height"
-            android:layout_height="match_parent"/>
-
-    <com.lsm.hementkoltin.ui.view.BottomBar android:layout_width="match_parent"
-                                            android:layout_gravity="bottom"
-                                            android:id="@+id/mBottomBar"
-                                            android:layout_height="@dimen/bottombar_wechat_height"/>
-
-    <ImageView
-            android:layout_width="match_parent"
-            android:background="@drawable/actionbar_shadow_up"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/bottombar_wechat_height"
-            android:layout_height="wrap_content"/>
-</FrameLayout>
+<FrameLayout
+        android:id="@+id/fl_container"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>

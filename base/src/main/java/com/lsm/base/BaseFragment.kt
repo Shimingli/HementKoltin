@@ -52,6 +52,7 @@ abstract class BaseFragment : SupportFragment() {
         getPresenter()?.let { lifecycle.addObserver(it) }
     }
 
+
     abstract fun initListener()
     abstract fun getPresenter(): LifecycleObserver?
 

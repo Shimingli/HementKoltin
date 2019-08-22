@@ -2,12 +2,9 @@ package com.lsm.hementkoltin.ui.fragment
 
 import android.os.Bundle
 import androidx.lifecycle.LifecycleObserver
+import com.lsm.base.BaseFragment
 import com.lsm.base.weight.MultipleStatusView
 import com.lsm.hementkoltin.R
-import com.lsm.hementkoltin.ui.view.BottomBar
-import com.lsm.hementkoltin.ui.view.BottomBarTab
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.toolbar.*
 
 
 /**
@@ -17,15 +14,15 @@ import kotlinx.android.synthetic.main.toolbar.*
  *
  * @author  shiming
  * @version v1.0
- * @since 2019/8/21 10:13
+ * @since 2019/8/22 19:26
  */
-class MeFragment :BaseMainFragment(){
+class WarningLightsFragment: BaseFragment(){
 
     companion object{
 
-        fun newInstance(): MeFragment {
+        fun newInstance(): WarningLightsFragment {
             val args = Bundle()
-            val fragment = MeFragment()
+            val fragment = WarningLightsFragment()
             fragment.arguments = args
             return fragment
         }
@@ -33,8 +30,7 @@ class MeFragment :BaseMainFragment(){
 
 
     override fun initListener() {
-
-
+//        mToolBar.title = "WarningLightsFragment"
     }
 
     override fun getPresenter(): LifecycleObserver? {
@@ -45,7 +41,7 @@ class MeFragment :BaseMainFragment(){
         return null
     }
 
-    override fun getLayoutId(): Int = R.layout.fragment_tab_me
+    override fun getLayoutId(): Int = R.layout.fragment_warning_lishts_layout
 
     override fun lazyLoad() {
 
