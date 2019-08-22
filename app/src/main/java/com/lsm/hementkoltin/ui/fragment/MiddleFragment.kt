@@ -38,6 +38,7 @@ class MiddleFragment :BaseMainFragment(), View.OnClickListener {
         mToolBar.title = "MiddleFragment"
         mCardViewTop.setOnClickListener(this)
         mCardViewOne.setOnClickListener(this)
+        mCardViewTwo.setOnClickListener(this)
     }
 
     override fun getPresenter(): LifecycleObserver? {
@@ -60,6 +61,9 @@ class MiddleFragment :BaseMainFragment(), View.OnClickListener {
            }
            R.id.mCardViewOne->{
                (parentFragment as MainFragment).startBrotherFragment(FlickerLightsFragment.newInstance())
+           }
+           R.id.mCardViewTwo->{
+               (parentFragment as MainFragment).startBrotherFragment(ScreenLightFragment.newInstance())
            }
        }
     }
