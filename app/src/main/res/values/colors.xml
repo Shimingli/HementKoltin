@@ -8,6 +8,13 @@
     <color name="tab_unselect">#c9c9c9</color>
     <color name="bg_btn">#dadada</color>
     <color name="clr_000000">#000000</color>
+    <color name="te_img_top">#ef737d</color>
 
+    <color name="te_img_right">#edbe6c</color>
+    <color name="te_img_right_top">#ebfa13</color>
+    <color name="te_img_left_top">#19eaff</color>
+    <color name="te_img_left">#617cff</color>
+    <color name="te_img_left_bottom">#51ff59</color>
+    <color name="te_img_center">#b89bff</color>
 
 </resources>

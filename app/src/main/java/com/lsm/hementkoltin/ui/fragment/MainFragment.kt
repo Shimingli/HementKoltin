@@ -46,13 +46,13 @@ class MainFragment:BaseFragment(){
         if (firstFragment == null) {
             mFragments[FIRST] = HomePageFragment.newInstance()
             mFragments[SECOND] = MiddleFragment.newInstance()
-            mFragments[MainFragment.THIRD] = MeFragment.newInstance()
+            mFragments[THIRD] = MeFragment.newInstance()
 
             loadMultipleRootFragment(
                 R.id.fl_tab_container, FIRST,
                 mFragments[FIRST],
                 mFragments[SECOND],
-                mFragments[MainFragment.THIRD]
+                mFragments[THIRD]
             )
         } else {
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
